@@ -1,0 +1,241 @@
+.header {
+    background-color: #fff;
+    height: 104px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo_img {
+    width: 160px;
+    height: 104px;
+    object-fit: contain;
+    margin: auto;
+}
+.nav_link {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.nav_link:hover {
+    color: #FF6B35;
+}
+
+/* ===== ПОИСК ===== */
+.search_bar {
+    position: relative;
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.search_input {
+    width: 100%;
+    padding: 10px 15px;
+    padding-right: 40px;
+    border: 1px solid #DADADA;
+    border-radius: 15px;
+    outline: none;
+    height: 47px;
+    font-size: 16px;
+    color: #333;
+}
+
+.search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.search-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ===== КНОПКИ АВТОРИЗАЦИИ ===== */
+.header_buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn {
+    border: none;
+    height: 47px;
+    border-radius: 5px;
+    padding: 0 15px;
+    background-color: #FF6B35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn img {
+    width: 23px;
+    height: 29px;
+}
+
+/* ===== БУРГЕР-МЕНЮ (мобильное) ===== */
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
+
+.burger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.burger-btn.active .burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+.burger-btn.active .burger-line:nth-child(2) {
+    opacity: 0;
+}
+.burger-btn.active .burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* ===== ВЫПАДАЮЩЕЕ МЕНЮ НА МОБИЛКАХ ===== */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 20px 0;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.mobile-menu li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-menu a,
+.mobile-menu button {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+.mobile-menu a:hover,
+.mobile-menu button:hover {
+    color: #FF6B35;
+}
+
+.mobile-menu.open {
+    display: block;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 992px) {
+    .search_bar {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header_content {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .search_bar {
+        order: 2;
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    .header_buttons {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .burger-btn {
+        display: flex;
+        order: 4;
+        margin-left: 10px;
+    }
+
+    /* Скрываем обычные кнопки на мобильных */
+    .header_buttons > .btn {
+        display: none;
+    }
+
+    .nav_link {
+        display: none;
+    }
+
+    .logo_img {
+        width: 60px;
+        height: 60px;
+    }
+}
