@@ -8,7 +8,7 @@
                 <h1 class="recipe-hero-title">{{ $recipe->name }}</h1>
                 <div class="recipe-hero-meta">
                     <div class="recipe-hero-author">
-                        <div class="avatar">
+                        <div class="author_avatar">
                             @if($recipe->user->avatar_url)
                                 <img src="{{ $recipe->user->avatar_url }}" alt="Avatar">
                             @else
